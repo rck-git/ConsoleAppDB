@@ -46,19 +46,6 @@ internal class Program
         var menuservice = app.Services.GetRequiredService<MenuService>();
         menuservice.ShowMenu();
 
-        //MenuService menuService = new MenuService();
-        //menuService.ShowMenu();
-        //    var productservice = app.Services.GetRequiredService<ProductService>();
-
-        //    productservice.CreateProduct(new Product
-        //    {
-        //       Title = "TestTitle",
-        //       Price = 100,
-        //       CategoryId = 100,
-        //       CategoryName = "demoCategory"
-        //    });
-        //}
-
     }
 }
 

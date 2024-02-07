@@ -12,11 +12,8 @@ public class CustomerRepository : Repository<CustomerEntity>
 {
     private readonly DataContext _context;
 
-
     public CustomerRepository(DataContext context) : base(context)
     {
 
     }
-    
-
 }

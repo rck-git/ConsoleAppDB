@@ -32,10 +32,7 @@ public class CustomerEntity
     [ForeignKey(nameof(AdressEntity))]
     public int AdressId { get; set; }
 
-    //create a one to many relationship
-    //Customer can have 1 Adress while i.e
-    // Adresses can have multiple Customers
-    //public virtual AdressEntity Adress { get; set; } = null!;
+    
     public AdressEntity Adress { get; set; } = null!;
 
 
@@ -43,9 +40,6 @@ public class CustomerEntity
     [ForeignKey(nameof(RoleEntity))]
     public int RoleId { get; set; }
 
-    //create a one to many relationship
-    //Customer can have 1 role while i.e
-    // roles can have multiple Customers
-    //public virtual RoleEntity Role{ get; set; } = null!;
+
     public RoleEntity Role { get; set; } = null!;
 }

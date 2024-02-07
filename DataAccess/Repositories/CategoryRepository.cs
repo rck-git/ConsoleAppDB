@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 namespace DataAccess.Repositories;
 
 //inheriting the two methods from the abstract class "repository"
-//
+
 public class CategoryRepository : Repository<CategoryEntity>
 {
     private readonly DataContext _context;
@@ -19,50 +19,4 @@ public class CategoryRepository : Repository<CategoryEntity>
 
     }
  
-
-    //public override IEnumerable<ProductEntity> ReadAllEntities()
-    //{
-    //    try
-    //    {
-    //        var result = _context.Products.Include(x => x.Category).ToList();
-
-    //        if (result != null)
-    //        {
-    //            return result;
-    //        }
-    //        if (result == null)
-    //        {
-    //            return null!;
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine(ex.Message);
-    //    }
-    //    return null!;
-
-    //}
-
-    //public override ProductEntity ReadOneEntity(Expression<Func<ProductEntity, bool>> predicate)
-    //{
-    //    try
-    //    {
-    //        var result = _context.Products.Include(x => x.Category).FirstOrDefault(predicate);
-
-    //        if (result != null)
-    //        {
-    //            return result;
-    //        }
-    //        if (result == null)
-    //        {
-    //            return null!;
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine(ex.Message);
-    //    }
-    //    return null!;
-    //}
-
 }

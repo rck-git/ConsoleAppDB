@@ -11,7 +11,7 @@ namespace DataAccess.Repositories;
 
 public abstract class Repository<TEntity> where TEntity : class
 {
-    //private readonly string _connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\r\Downloads\db\ConsoleAppD\DataAccess\Data\database.mdf;Integrated Security=True";
+
     private readonly DataContext _context;
     
     protected Repository(DataContext context)
@@ -40,10 +40,7 @@ public abstract class Repository<TEntity> where TEntity : class
         try
         {
             return _context.Set<TEntity>().ToList();
-            //if (result != null)
-            //{
-            //    return result;
-            //}
+    
         }
         catch (Exception ex)
         {
@@ -166,20 +163,3 @@ public abstract class Repository<TEntity> where TEntity : class
 
     }
  }
-
-
-//public virtual IDataReader Read(string query, TEntity entity)
-//{
-//    using var conn = new SqlConnection(_connectionString);
-
-//    try
-//    {
-//        var result = conn.ExecuteReader(query, entity);
-//        if (result != null)
-//        {
-//            return result;
-//        }
-//    }
-//    catch (Exception ex) { Debug.WriteLine(ex.Message); }
-//    return null!;
-//}

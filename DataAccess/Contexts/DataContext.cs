@@ -8,10 +8,10 @@ namespace DataAccess.Contexts;
 
 public class DataContext : DbContext
 {
-  
+
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
-       
+
     }
 
 
@@ -38,13 +38,13 @@ public class DataContext : DbContext
             .HasIndex(x => x.CategoryName)
             .IsUnique();
 
-         modelBuilder.Entity<ProductEntity>()
-            .HasIndex(x => x.Title)
-            .IsUnique();
+        modelBuilder.Entity<ProductEntity>()
+           .HasIndex(x => x.Title)
+           .IsUnique();
 
         modelBuilder.Entity<AdressEntity>()
             .HasIndex(x => x.StreetName);
-            
+
     }
 
 }

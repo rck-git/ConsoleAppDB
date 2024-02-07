@@ -13,7 +13,7 @@ public abstract class Repository<TEntity> where TEntity : class
 {
 
     private readonly DataContext _context;
-    
+
     protected Repository(DataContext context)
     {
         _context = context;
@@ -26,21 +26,21 @@ public abstract class Repository<TEntity> where TEntity : class
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
             return entity;
-            
+
         }
-        catch (Exception ex) 
-        { 
+        catch (Exception ex)
+        {
             Debug.WriteLine("error msg:" + ex.Message);
         }
         return null!;
     }
- 
+
     public virtual IEnumerable<TEntity> ReadAllEntities()
     {
         try
         {
             return _context.Set<TEntity>().ToList();
-    
+
         }
         catch (Exception ex)
         {
@@ -72,7 +72,7 @@ public abstract class Repository<TEntity> where TEntity : class
 
             if (result != null)
             {
-               return result;
+                return result;
             }
             if (result == null)
             {
@@ -86,7 +86,7 @@ public abstract class Repository<TEntity> where TEntity : class
         return null!;
     }
 
- 
+
     public virtual TEntity Update(TEntity entity)
     {
         try
@@ -107,7 +107,7 @@ public abstract class Repository<TEntity> where TEntity : class
         }
         return null!;
     }
-    public virtual TEntity Update(Expression<Func<TEntity , bool>> predicate, TEntity entity)
+    public virtual TEntity Update(Expression<Func<TEntity, bool>> predicate, TEntity entity)
     {
         try
         {
@@ -119,7 +119,7 @@ public abstract class Repository<TEntity> where TEntity : class
                 _context.SaveChanges();
                 return entityToUpdate;
             }
-            
+
         }
         catch (Exception ex)
         {
@@ -141,8 +141,8 @@ public abstract class Repository<TEntity> where TEntity : class
                 return true;
             }
         }
-     catch (Exception ex) 
-        { 
+        catch (Exception ex)
+        {
             Debug.WriteLine(ex.Message);
         }
         return false!;
@@ -153,7 +153,7 @@ public abstract class Repository<TEntity> where TEntity : class
         {
             var result = _context.Set<TEntity>().Any(predicate);
             return result;
-                    
+
         }
         catch (Exception ex)
         {
@@ -162,4 +162,4 @@ public abstract class Repository<TEntity> where TEntity : class
         return false;
 
     }
- }
+}

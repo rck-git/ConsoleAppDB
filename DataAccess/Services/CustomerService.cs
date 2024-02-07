@@ -17,23 +17,23 @@ public class CustomerService
     private readonly AdressRepository _adressRepository;
     private readonly CustomerRepository _customerRepository;
     private readonly RoleRepository _roleRepository;
- 
+
     public CustomerService(AdressRepository adressRepository, CustomerRepository customerRepository, RoleRepository roleRepository)
     {
         _adressRepository = adressRepository;
         _customerRepository = customerRepository;
         _roleRepository = roleRepository;
-       
+
     }
 
     public bool CreateCustomer(CustomerRegistration form)
     {
         try
         {
-            
+
             if (!_customerRepository.Exists(x => x.Email == form.Email))
             {
-                          
+
                 var roleEntity = _roleRepository.ReadOneEntity(x => x.RoleName == form.RoleName);
                 if (roleEntity == null)
                 {
@@ -41,7 +41,7 @@ public class CustomerService
                     {
                         RoleName = form.RoleName,
                     });
-                    
+
                 }
                 var adressEntity = _adressRepository.ReadOneEntity(x => x.StreetName == form.StreetName);
                 if (adressEntity == null)
@@ -93,13 +93,13 @@ public class CustomerService
         }
         return false;
     }
-    
+
     public void ReadOneCustomer(string email)
     {
         try
         {
             email.Trim();
-                        
+
             var entity = _customerRepository.ReadOneEntity(x => x.Email == email);
             if (entity != null)
             {
@@ -137,7 +137,7 @@ public class CustomerService
                 Console.ReadKey();
                 Console.Clear();
             }
-            else 
+            else
             {
                 Console.Clear();
                 Console.WriteLine($"The input:'{email}' was not found in the database.");
@@ -152,7 +152,7 @@ public class CustomerService
         }
     }
     public void ReadAllCustomers()
-    {   
+    {
         List<CustomerEntity> returnedCustomers = _customerRepository.ReadAllEntities().ToList();
         List<AdressEntity> returnedAdresses = _adressRepository.ReadAllEntities().ToList();
         List<RoleEntity> returnedRoles = _roleRepository.ReadAllEntities().ToList();
@@ -172,7 +172,7 @@ public class CustomerService
                 Console.WriteLine($"Email:{entity.Email}");
                 Console.WriteLine($"PhoneNumber:{entity.PhoneNumber}");
 
-               if(matchingAdress.Count != 0)
+                if (matchingAdress.Count != 0)
                 {
                     foreach (var adress in matchingAdress)
                     {
@@ -195,7 +195,7 @@ public class CustomerService
                         Console.WriteLine($"Role: {role.RoleName}");
                     }
                 }
-                 else
+                else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("No matching adress for the customer.");
@@ -213,7 +213,7 @@ public class CustomerService
         }
     }
     public bool UpdateCustomer(CustomerRegistration form)
-    {   
+    {
         try
         {
             var returnedEntity = _customerRepository.ReadOneEntity(x => x.Email == form.Email);
@@ -224,7 +224,7 @@ public class CustomerService
             if (_customerRepository.Exists(x => x.Email == returnedEntity.Email))
             {
                 int specify = 0;
-                
+
                 if (specify != 1 || specify != 2 || specify != 3)
                 {
                     Console.Clear();
@@ -256,15 +256,15 @@ public class CustomerService
                         var adressEntity = _adressRepository.ReadOneEntity(x => x.StreetName == returnedAdress.StreetName);
                         Console.Clear();
 
-                        Console.WriteLine($"Current StreetName:{returnedAdress.StreetName} ,City: {returnedAdress.City}, PostalCode: {returnedAdress.PostalCode}");   
-                        
+                        Console.WriteLine($"Current StreetName:{returnedAdress.StreetName} ,City: {returnedAdress.City}, PostalCode: {returnedAdress.PostalCode}");
+
                         Console.Write("Enter a new StreetName:");
                         var newAdress = Console.ReadLine();
                         Console.Write("Enter a new City:");
                         var newCity = Console.ReadLine();
                         Console.Write("Enter a new Postalcode:");
                         var newPostalcode = Console.ReadLine();
-                      
+
                         if (_adressRepository.Exists(x => x.StreetName == newAdress) && _adressRepository.Exists(x => x.PostalCode == newPostalcode) && _adressRepository.Exists(x => x.City == newCity))
                         {
                             var existingAdressEntity = _adressRepository.ReadOneEntity(x => x.StreetName == newAdress);
@@ -337,7 +337,7 @@ public class CustomerService
                             //edit Customer RoleId to the newly created roleEntity.Id.
                             returnedEntity.RoleId = roleEntity.Id;
                         }
-                                                   // predicate to find entity to update      //entity to update with
+                        // predicate to find entity to update      //entity to update with
                         var success = _customerRepository.Update(z => z.Id == returnedEntity.Id, returnedEntity);
 
                         if (success != null)
@@ -377,7 +377,7 @@ public class CustomerService
                         var newEmail = Console.ReadLine();
                         Console.Write("Enter a new PhoneNumber:");
                         var newPhoneNumber = Console.ReadLine();
-                        
+
                         //if (newFirstName == "" || newFirstName == null) 
                         //{
                         //    newFirstName = returnedEntity.FirstName;
@@ -394,7 +394,7 @@ public class CustomerService
                         //{
                         //    newPhoneNumber = returnedEntity.PhoneNumber;
                         //}
-                       
+
                         returnedEntity.FirstName = string.IsNullOrEmpty(newFirstName) ? returnedEntity.FirstName : newFirstName;
                         returnedEntity.Lastname = string.IsNullOrEmpty(newLastName) ? returnedEntity.Lastname : newLastName;
                         returnedEntity.Email = string.IsNullOrEmpty(newEmail) ? returnedEntity.Email : newEmail;

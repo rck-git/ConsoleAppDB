@@ -20,7 +20,7 @@ public class CustomerEntity
     public string Lastname { get; set; } = null!;
 
     [Required]
-    
+
     [Column(TypeName = "NVARCHAR(100)")]
     public string Email { get; set; } = null!;
 
@@ -32,7 +32,7 @@ public class CustomerEntity
     [ForeignKey(nameof(AdressEntity))]
     public int AdressId { get; set; }
 
-    
+
     public AdressEntity Adress { get; set; } = null!;
 
 

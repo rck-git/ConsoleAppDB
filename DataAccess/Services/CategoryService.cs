@@ -14,7 +14,7 @@ public class CategoryService
     private readonly CustomerRepository _customerRepository;
     private readonly RoleRepository _roleRepository;
 
-    public CategoryService(ProductRepository productRepository,AdressRepository adressRepository, CustomerRepository customerRepository, RoleRepository roleRepository, CategoryRepository categoryRepository)
+    public CategoryService(ProductRepository productRepository, AdressRepository adressRepository, CustomerRepository customerRepository, RoleRepository roleRepository, CategoryRepository categoryRepository)
     {
         _adressRepository = adressRepository;
         _customerRepository = customerRepository;
@@ -34,7 +34,7 @@ public class CategoryService
                 {
                     CategoryName = form.CategoryName
                 });
-                
+
                 if (categoryEntity != null)
                 {
                     Console.Clear();
@@ -50,7 +50,7 @@ public class CategoryService
             {
                 Console.WriteLine($"Category name {form.CategoryName} already exist, it must be unique.");
             }
-       
+
         }
         catch (Exception ex)
         {
@@ -64,7 +64,7 @@ public class CategoryService
         try
         {
             categoryname.Trim();
-         
+
             var returnedCategory = _categoryRepository.ReadOneEntity(x => x.CategoryName == categoryname);
 
             if (returnedCategory != null)
@@ -128,7 +128,7 @@ public class CategoryService
                     Console.WriteLine("-------------------------------------");
                     Console.WriteLine($"id: {entity.Id}");
                     Console.WriteLine($"Category Name:{entity.CategoryName}");
-                    
+
                     var productMatchingtheCurrentCategory = returnedProducts.FindAll(x => x.CategoryId == entity.Id);
                     if (productMatchingtheCurrentCategory.Count != 0)
                     {
@@ -162,7 +162,7 @@ public class CategoryService
             Debug.WriteLine(ex.Message);
         }
     } //
-     public void UpdateCategory(string categoryname)
+    public void UpdateCategory(string categoryname)
     {
         try
         {
@@ -205,14 +205,14 @@ public class CategoryService
             {
                 Console.WriteLine($"Categoryname {categoryname} not found in the database.");
             }
-           
+
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
         }
     } //
-   
+
     public void DeleteCategory(string categoryName)
     {
         try

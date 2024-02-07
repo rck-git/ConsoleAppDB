@@ -17,7 +17,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        
+
 
         var app = Host.CreateDefaultBuilder().ConfigureServices(services =>
         {
@@ -36,9 +36,9 @@ internal class Program
             services.AddScoped<RoleService>();
 
             services.AddScoped<MenuService>();
-       
-          
-           
+
+
+
         }).Build();
         app.Start();
         Console.Clear();

@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleAppD.Models;
+namespace DataAccess.Models;
 
 //models are used to send and receive data
 //while entities should reflect whats inside the database

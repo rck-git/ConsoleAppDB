@@ -24,8 +24,8 @@ public class ProductService
     {
         try
         {
-            
-            
+
+
             var categoryEntity = _categoryRepository.ReadOneEntity(x => x.CategoryName == form.CategoryName);
             if (categoryEntity == null)
             {
@@ -56,7 +56,7 @@ public class ProductService
                 Console.ReadKey();
                 return true;
             }
-            
+
         }
         catch (Exception ex)
         {

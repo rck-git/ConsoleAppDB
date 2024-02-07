@@ -34,7 +34,7 @@ namespace ConsoleAppD.Services
             _categoryService = categoryService;
         }
 
-        public void ShowMenu ()
+        public void ShowMenu()
         {
             bool runmenu = true;
             int input = 0;
@@ -50,7 +50,7 @@ namespace ConsoleAppD.Services
                         Console.Clear();
                         Console.WriteLine("Options are 1-7");
                         Console.WriteLine("1. Customer");
-                        Console.WriteLine("2. Roles"); 
+                        Console.WriteLine("2. Roles");
                         Console.WriteLine("3. Adresses");
                         Console.WriteLine("4. Products");
                         Console.WriteLine("5. Categories");
@@ -59,7 +59,7 @@ namespace ConsoleAppD.Services
 
                         Console.Write("Enter option: ");
                         input = Convert.ToInt32(Console.ReadLine());
-                    }          
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -70,7 +70,7 @@ namespace ConsoleAppD.Services
                     Console.Clear();
                     ShowMenu();
                 }
-                
+
                 switch (input)
                 {
                     case 0:
@@ -146,9 +146,9 @@ namespace ConsoleAppD.Services
                             break;
                         }
                 }
-            }      
-       }
-  
+            }
+        }
+
 
         public void CustomerMenu()
         {
@@ -210,7 +210,7 @@ namespace ConsoleAppD.Services
                     catch (Exception ex)
                     {
                         Debug.WriteLine(ex.Message);
-                        
+
                     }
                 }
                 if (specify == 2)
@@ -253,7 +253,7 @@ namespace ConsoleAppD.Services
                         _customerService.UpdateCustomer(form);
 
                         ShowMenu();
-                        
+
                     }
                     catch (Exception)
                     {
@@ -345,7 +345,7 @@ namespace ConsoleAppD.Services
                     {
                         Console.WriteLine("Enter product title to update:");
                         var product = Console.ReadLine()!;
-                        _productService.UpdateProduct(product); 
+                        _productService.UpdateProduct(product);
                         ShowMenu();
                     }
                     catch (Exception)
@@ -379,7 +379,7 @@ namespace ConsoleAppD.Services
                 int specify = 0;
                 specify = Convert.ToInt32(Console.ReadLine());
 
-                
+
 
                 if (specify == 1)
                 {
@@ -389,7 +389,7 @@ namespace ConsoleAppD.Services
 
                         Console.WriteLine("Enter StreetName:");
                         entity.StreetName = Console.ReadLine();
-                       
+
 
                         Console.WriteLine("Enter City:");
                         entity.City = Console.ReadLine();
@@ -495,7 +495,7 @@ namespace ConsoleAppD.Services
                 Console.WriteLine("5. Product");
                 int specify = 0;
                 specify = Convert.ToInt32(Console.ReadLine());
-                
+
                 //ProductRegistration form = new ProductRegistration();
 
                 if (specify == 1)
@@ -515,7 +515,7 @@ namespace ConsoleAppD.Services
                 }
                 if (specify == 2)
                 {
-                    
+
                     try
                     {
                         AdressEntity entity = new AdressEntity();
@@ -665,13 +665,13 @@ namespace ConsoleAppD.Services
                     Console.WriteLine("valid options: 1-4");
                     Console.WriteLine("press any key to return. . . ");
                     Console.ReadKey();
-                    
+
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                
+
             }
         }
         public void CategoryMenu()

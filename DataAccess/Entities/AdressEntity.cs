@@ -18,6 +18,6 @@ public class AdressEntity
 
     [Required]
     [Column(TypeName = "varchar(6)")]
-    public string PostalCode { get; set; }=null!;
+    public string PostalCode { get; set; } = null!;
 
 }

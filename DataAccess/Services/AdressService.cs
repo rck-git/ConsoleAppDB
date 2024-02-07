@@ -82,11 +82,11 @@ namespace DataAccess.Services
                         Console.WriteLine($"StreetName: {entity.StreetName}");
                         Console.WriteLine($"City: {entity.City}");
                         Console.WriteLine($"PostalCode: {entity.PostalCode}");
-                   
+
                         var customersMatchingtheCurrentAdress = returnedCustomers.FindAll(x => x.AdressId == entity.Id);
 
                         if (customersMatchingtheCurrentAdress.Count != 0)
-                        { 
+                        {
                             foreach (var customer in customersMatchingtheCurrentAdress)
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -134,9 +134,9 @@ namespace DataAccess.Services
         }
         public void ReadOneAdress(AdressEntity entity)
         {
-           var result = _adressRepository.ReadOneEntity(x => x.StreetName == entity.StreetName &&
-           x.City == entity.City &&
-           x.PostalCode == entity.PostalCode);
+            var result = _adressRepository.ReadOneEntity(x => x.StreetName == entity.StreetName &&
+            x.City == entity.City &&
+            x.PostalCode == entity.PostalCode);
             if (result != null)
             {
                 Console.Clear();

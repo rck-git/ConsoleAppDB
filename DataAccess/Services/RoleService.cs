@@ -33,12 +33,12 @@ namespace DataAccess.Services
                 Console.Clear();
                 if (!_roleRepository.Exists(x => x.RoleName == form.RoleName))
                 {
-                        var roleEntity = _roleRepository.Create(new RoleEntity
-                        {
-                            RoleName = form.RoleName
-                        });
-                                   
-                    
+                    var roleEntity = _roleRepository.Create(new RoleEntity
+                    {
+                        RoleName = form.RoleName
+                    });
+
+
                     if (roleEntity != null)
                     {
                         Console.WriteLine($"Created a new role name");
@@ -48,8 +48,8 @@ namespace DataAccess.Services
                         Console.Clear();
                     }
                 }
-                else 
-                {   
+                else
+                {
                     Console.WriteLine($"The role name {form.RoleName} already exist");
                     Console.WriteLine("press any key to return. . . ");
                     Console.ReadKey();
@@ -61,7 +61,7 @@ namespace DataAccess.Services
                 Debug.WriteLine(ex.Message);
             }
         }
-     
+
         public void ReadOneRole(string rolename)
         {
             try
@@ -70,7 +70,7 @@ namespace DataAccess.Services
                 rolename.Trim();
                 var count = 0;
                 var role = _roleRepository.ReadOneEntity(x => x.RoleName == rolename);
-                
+
                 if (role != null)
                 {
                     //x => x.RoleId == role.Id
@@ -83,7 +83,7 @@ namespace DataAccess.Services
                     {
                         foreach (var custmr in customers)
                         {
-                            if(custmr.Id == role.Id)
+                            if (custmr.Id == role.Id)
                             {
                                 Console.WriteLine($"id: {custmr.Id}");
                                 Console.WriteLine($"Firstname: {custmr.FirstName}");
@@ -97,7 +97,7 @@ namespace DataAccess.Services
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("No customers associated with this role");
-                            
+
                         }
                     }
 
@@ -117,7 +117,7 @@ namespace DataAccess.Services
             {
                 Debug.WriteLine(ex.Message);
             }
-        } 
+        }
         public void ReadAllRoles()
         {
             try
@@ -154,7 +154,7 @@ namespace DataAccess.Services
                                 var adress = returnedAdresses.FindAll(x => x.Id == customer.AdressId);
 
                                 foreach (var x in returnedAdresses)
-                                { 
+                                {
                                     if (x.Id == customer.AdressId)
                                     {
                                         Console.ForegroundColor = ConsoleColor.Green;
@@ -188,7 +188,7 @@ namespace DataAccess.Services
             {
                 Debug.WriteLine(ex.Message);
             }
-        } 
+        }
 
         public void UpdateRoles(string rolename)
         {
@@ -234,7 +234,7 @@ namespace DataAccess.Services
             {
                 Debug.WriteLine(ex.Message);
             }
-        } 
+        }
 
         public void DeleteRole(string rolename)
         {

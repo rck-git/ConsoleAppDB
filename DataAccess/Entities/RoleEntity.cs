@@ -14,6 +14,4 @@ public class RoleEntity
     [Column(TypeName = "NVARCHAR (100)")]
     public string RoleName { get; set; } = null!;
 
- 
-
 }

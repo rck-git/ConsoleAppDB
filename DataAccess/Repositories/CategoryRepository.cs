@@ -12,11 +12,11 @@ namespace DataAccess.Repositories;
 public class CategoryRepository : Repository<CategoryEntity>
 {
     private readonly DataContext _context;
-    
+
 
     public CategoryRepository(DataContext context) : base(context)
     {
 
     }
- 
+
 }

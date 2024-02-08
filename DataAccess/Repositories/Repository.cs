@@ -53,10 +53,7 @@ public abstract class Repository<TEntity> where TEntity : class
         try
         {
             var result = _context.Set<TEntity>().Where(predicate);
-            if (result != null)
-            {
-                return result;
-            }
+          
         }
         catch (Exception ex)
         {
@@ -74,10 +71,7 @@ public abstract class Repository<TEntity> where TEntity : class
             {
                 return result;
             }
-            if (result == null)
-            {
-                return null!;
-            }
+          
         }
         catch (Exception ex)
         {

@@ -1,5 +1,4 @@
-﻿using ConsoleAppD.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -91,7 +90,7 @@ namespace ConsoleAppD.Services
                     case 2:
                         {
                             Console.Clear();
-                            Console.WriteLine("4. Roles");
+                            Console.WriteLine("2. Roles");
                             RoleMenu();
                             input = 0;
                             break;
@@ -99,7 +98,7 @@ namespace ConsoleAppD.Services
                     case 3:
                         {
                             Console.Clear();
-                            Console.WriteLine("5. Adresses");
+                            Console.WriteLine("3. Adresses");
                             AdressMenu();
                             input = 0;
                             break;
@@ -107,7 +106,7 @@ namespace ConsoleAppD.Services
                     case 4:
                         {
                             Console.Clear();
-                            Console.WriteLine("6. Products");
+                            Console.WriteLine("4. Products");
                             ProductMenu();
                             input = 0;
                             break;
@@ -115,7 +114,7 @@ namespace ConsoleAppD.Services
                     case 5:
                         {
                             Console.Clear();
-                            Console.WriteLine("7. Categories");
+                            Console.WriteLine("5. Categories");
                             CategoryMenu();
                             input = 0;
                             break;
@@ -123,7 +122,7 @@ namespace ConsoleAppD.Services
                     case 6:
                         {
                             Console.Clear();
-                            Console.WriteLine("8. Delete");
+                            Console.WriteLine("6. Delete");
                             DeleteMenu();
                             input = 0;
                             break;
@@ -131,7 +130,7 @@ namespace ConsoleAppD.Services
                     case 7:
                         {
                             Console.Clear();
-                            Console.WriteLine("10. Exit Application");
+                            Console.WriteLine("7. Exit Application");
                             runmenu = false;
                             break;
                         }
@@ -139,7 +138,7 @@ namespace ConsoleAppD.Services
                     default:
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Valid options are 1-9");
+                            Console.WriteLine("Valid options are 1-7");
                             Console.ReadKey();
                             Console.Clear();
                             ShowMenu();
@@ -474,7 +473,7 @@ namespace ConsoleAppD.Services
                     Console.WriteLine("valid options: 1-4");
                     Console.WriteLine("press any key to return. . . ");
                     Console.ReadKey();
-                    AdressMenu();
+                    ShowMenu();
                 }
 
             }
@@ -496,8 +495,6 @@ namespace ConsoleAppD.Services
                 int specify = 0;
                 specify = Convert.ToInt32(Console.ReadLine());
 
-                //ProductRegistration form = new ProductRegistration();
-
                 if (specify == 1)
                 {
                     try
@@ -505,6 +502,7 @@ namespace ConsoleAppD.Services
                         Console.WriteLine("Enter email:");
                         string email = Console.ReadLine()!;
                         _customerService.DeleteCustomer(email);
+                        ShowMenu();
 
                     }
                     catch (Exception)
@@ -525,8 +523,9 @@ namespace ConsoleAppD.Services
                         entity.City = Console.ReadLine()!;
                         Console.WriteLine("Enter Postalcode:");
                         entity.PostalCode = Console.ReadLine()!;
+                        _adressService.DeleteAdress(entity);
+                        ShowMenu();
 
-                        //_adressService.DeleteAdress(entity);
                     }
                     catch (Exception)
                     {
@@ -541,6 +540,7 @@ namespace ConsoleAppD.Services
                         Console.WriteLine("Enter roleName title:");
                         string roleName = Console.ReadLine()!;
                         _roleService.DeleteRole(roleName);
+                        ShowMenu();
                     }
                     catch (Exception)
                     {
@@ -555,6 +555,7 @@ namespace ConsoleAppD.Services
                         Console.WriteLine("Enter categoryName:");
                         string categoryName = Console.ReadLine()!;
                         _categoryService.DeleteCategory(categoryName);
+                        ShowMenu();
                     }
                     catch (Exception)
                     {
@@ -569,6 +570,7 @@ namespace ConsoleAppD.Services
                         Console.WriteLine("Enter product title:");
                         string product = Console.ReadLine()!;
                         _productService.DeleteProduct(product);
+                        ShowMenu();
                     }
                     catch (Exception)
                     {
@@ -582,7 +584,7 @@ namespace ConsoleAppD.Services
                     Console.WriteLine("valid options: 1-4");
                     Console.WriteLine("press any key to return. . . ");
                     Console.ReadKey();
-                    //CategoryMenu();
+                    ShowMenu();
                 }
 
             }
@@ -665,6 +667,7 @@ namespace ConsoleAppD.Services
                     Console.WriteLine("valid options: 1-4");
                     Console.WriteLine("press any key to return. . . ");
                     Console.ReadKey();
+                    ShowMenu();
 
                 }
             }

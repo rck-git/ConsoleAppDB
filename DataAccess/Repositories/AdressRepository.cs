@@ -16,7 +16,7 @@ namespace DataAccess.Repositories;
 public class AdressRepository : Repository<AdressEntity>
 {
     private readonly DataContext _context;
-    
+
 
     public AdressRepository(DataContext context) : base(context)
     {
@@ -39,5 +39,5 @@ public class AdressRepository : Repository<AdressEntity>
         return false;
 
     }
-   
+
 }

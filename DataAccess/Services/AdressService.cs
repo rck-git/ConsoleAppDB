@@ -252,7 +252,7 @@ namespace DataAccess.Services
                     if (deletedEntity)
                     {
                         var adress = _adressRepository.ReadOneEntity(x => x.Id == result.Id);
-                        //var customerEntity = _customerRepository.ReadOneEntity(x => x.AdressId == returnedEntity.Id);
+                       
                         Console.Clear();
                         Console.WriteLine($"id: {result.Id}");
                         Console.WriteLine($"StreetName: {result.StreetName}");

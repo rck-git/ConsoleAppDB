@@ -11,7 +11,6 @@ using System.Data;
 
 namespace DataAccess.Services;
 
-//tar hand om den "stora logiken" både att skapa själva adressen och customer och sätta role
 public class CustomerService
 {
     private readonly AdressRepository _adressRepository;

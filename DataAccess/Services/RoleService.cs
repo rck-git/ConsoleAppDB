@@ -1,5 +1,4 @@
-﻿using ConsoleAppD.Models;
-using DataAccess.Entities;
+﻿using DataAccess.Entities;
 using DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
